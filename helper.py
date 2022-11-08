@@ -15,13 +15,7 @@ def invariantmass(tree, i, j, k, l):
     """
     Computes the invariant mass of four leptons labelled i, j, k, l
     """
-    l1, l2, l3, l4 = ROOT.TLorentzVector(), ROOT.TLorentzVector(), ROOT.TLorentzVector(), ROOT.TLorentzVector()
-    l1.SetPtEtaPhiM(tree._lPt[i], tree._lEta[i], tree._lPhi[i], 0.)
-    l2.SetPtEtaPhiM(tree._lPt[j], tree._lEta[j], tree._lPhi[j], 0.)
-    l3.SetPtEtaPhiM(tree._lPt[k], tree._lEta[k], tree._lPhi[k], 0.)
-    l4.SetPtEtaPhiM(tree._lPt[l], tree._lEta[l], tree._lPhi[l], 0.)
-
-    mass = (l1 + l2 + l3 + l4).Mag()
+    mass = 0
     return mass
 
 
