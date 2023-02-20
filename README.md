@@ -5,13 +5,34 @@
 git clone https://github.com/iihe-ulb-students/CMSHiggs4Leptons
 cd CMSHiggs4Leptons
 ```
-You will need to download the file containing the data that is named `events4leptonsCMS_FullRun2.root` (ask for its location)
+You will need to download the file containing the data that is named `events4leptonsCMS_FullRun2.root` (ask for its location).
 
-The code is located in `example.ipynb`
+The code is located in `example.ipynb`. You can either run it as a jupiter notebook or convert it into a more traditional python script.
+A short example on how to access the data and the relevant variables is already provided.
+
+## Goals
+Study the 4 lepton final states, in the context of the H->ZZ->4l analysis. The data was collected by the CMS experiment from 2016 until 2018 (known as Run2). A light skimming is pre-applied to significanly reduce the input size.
 
 
 ## Instructions:
-- Make a histogram of the number of reconstructed leptons (muons, electrons) in each event. How many have 0, 1, 2, 3, 4 muons? 
-- For events with >=4 leptons, compute the invariant mass of the first four leptons and fill a histogram with 500 bins ranging from 0 to 500 GeV. *=>Tip: To compute the invariant mass, you will first need to find the E, px, py, pz component of each lepton. The lepton pt, eta and phi can be used to retrieve those, see: https://en.wikipedia.org/wiki/Pseudorapidity Note that we are working in the ultrarelativistic limit and therefore one can assume E=|p| for leptons.*
-  - What are the various peaks observed? 
+
+- Make a histogram of the number of reconstructed leptons (muons, electrons) in each event. How many events have (0, 1, 2, 3, 4) muons? And what about electrons?
+  - Discussion: how can we select interesting events?
+  - Hint: Split per relevant signature
+- For events with >=4 leptons, compute the invariant mass of the first four leptons and fill a histogram with 500 bins ranging from 0 to 500 GeV.
+  - Hint: To compute the invariant mass, you will first need to find the E, px, py, pz component of each lepton. The lepton pt, eta and phi can be used to retrieve those, see: https://en.wikipedia.org/wiki/Pseudorapidity. (Note that we are working in the ultrarelativistic limit and therefore one can assume E=|p| for leptons.)
+  - What are the various peaks observed?
+- Compute the invariant mass for each pair of leptons.
+  - How does the picture change depending on the lepton flavour?
+  - What are the various peaks observed?
+  - Hint: Zoom in the low mass region. What do you observe?
+- What are the lepton properties? Can we improve the "purity" of 4l mass?
+  - Hints: Consider lepton kinematics, angles, ...
+- What are the Z boson properties? Can we improve the "purity" of 4l mass?
+- Calculate number of events per mass region (To be discussed):
+  - What's the selection efficiency?
+  - Joint task: How does this compare to the other channels?
+
 ​
+### General recommandations:
+- Test your code on a small number of events (eg. 5-10k). Once you think the code works as expected, run it with full statistics.

@@ -1,4 +1,6 @@
 import ROOT
+# to be used to avoid display intermediate plotting results
+# ROOT.gROOT.SetBatch(ROOT.kTRUE)
 
 
 def isgoodlepton(tree, i):
@@ -11,7 +13,7 @@ def isgoodlepton(tree, i):
     return True
 
 
-def invariantmass(tree, i, j, k, l):
+def invariantmass4l(tree, i, j, k, l):
     """
     Computes the invariant mass of four leptons labelled i, j, k, l
     """
@@ -19,13 +21,20 @@ def invariantmass(tree, i, j, k, l):
     return mass
 
 
-def savehisto(outputfile, histo, histoname):
+def savehisto(outputfile, histo, histoname, logy=False, extraname="", extension="pdf"):
     """
     Draw histo
     """
-    c = ROOT.TCanvas("c_" + histoname, "", 600, 600)
-    histo.Draw()
-    c.SaveAs("c_"+histoname+".png")
+    c = ROOT.TCanvas(histoname, histoname, 600, 600)
+    if "2D" in histoname:
+        c.SetLogz(True)
+        histo.Draw("colz")
+    else:
+        histo.Draw()
+    c.SetLogy(logy)
+    if not logy:
+        extraname += "_nolog"
+    c.SaveAs("pdfs/"+histoname+extraname+"."+extension)
     outputfile.cd()
     c.Write()
-    
+    c.Close()
