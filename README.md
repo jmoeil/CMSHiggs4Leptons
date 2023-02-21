@@ -5,7 +5,7 @@
 git clone https://github.com/iihe-ulb-students/CMSHiggs4Leptons
 cd CMSHiggs4Leptons
 ```
-You will need to download the file containing the data that is named `events4leptonsCMS_FullRun2.root` (ask for its location).
+You will need to download the file containing the data and the simulation MC (ask for their location).
 
 The code is located in `example.ipynb`. You can either run it as a jupiter notebook or convert it into a more traditional python script.
 A short example on how to access the data and the relevant variables is already provided.
@@ -15,6 +15,8 @@ Study the 4 lepton final states, in the context of the H->ZZ->4l analysis. The d
 
 
 ## Instructions:
+- Start analyzing the data.
+  - Hint: When analyzing the simulation, don't use the whole samples for testing your code (it's quite large!).
 - Choose a final state/channel (4m, 4e, 2e2m):
   - Joint task: You can compare your results with the inclusive channel (4l) and the other final states.
 - Make a histogram of the number of reconstructed leptons (muons, electrons) in each event. How many events have (0, 1, 2, 3, 4) muons? And what about electrons?
@@ -31,7 +33,7 @@ Study the 4 lepton final states, in the context of the H->ZZ->4l analysis. The d
   - Hints: Consider lepton and boson properties (eg. mass, kinematics, angles, ...)
 - What are the Z boson properties? Can we improve the "purity" of 4l mass?
 - Calculate number of events per mass region (To be discussed):
-  - What's the selection efficiency?
+  - What's the selection efficiency in simulation?
   - Joint task: How does this compare to the other channels?
 - Measure the production cross-section for a given final state:
   - What are the assumpions you have to make?
