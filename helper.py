@@ -17,7 +17,7 @@ def isgoodlepton(tree, i):
 
 def invariantmass4l(tree, e, p, mu_minus, mu_plus):
     """
-    Computes the invariant mass of four leptons labelled i, j, k, l
+    Computes the invariant mass of four leptons labelled e, p, mu_minus, mu_plus
     """
     
     pt = np.array([tree._lPt[e],tree._lPt[p],tree._lPt[mu_minus],tree._lPt[mu_plus]])
@@ -42,6 +42,31 @@ def invariantmass4l(tree, e, p, mu_minus, mu_plus):
 
     mass = np.sqrt(E**2 - np.linalg.norm(p_e+p_p+p_mu_minus+p_mu_plus)**2)
     
+    return mass
+
+def invariantmass2l(tree,lep1,lep2):
+    '''
+    Computes the invariant mass of 2 laptons labelled lep1,lep2
+    '''
+
+    pt = np.array([tree._lPt[lep1],tree._lPt[lep2]])
+    phi = np.array([tree._lPhi[lep1],tree._lPhi[lep2]])
+    eta = np.array([tree._lEta[lep1],tree._lEta[lep2]])
+
+    px = pt*np.cos(phi)
+    py = pt*np.sin(phi)
+    pz = pt*np.sinh(eta)
+
+    p_1 = np.array([px[0],py[0],pz[0]])
+    p_2 = np.array([px[1],py[1],pz[1]])
+
+    E_1 = np.linalg.norm(p_1)
+    E_2 = np.linalg.norm(p_2)
+
+    E = E_1+E_2
+
+    mass = np.sqrt(E**2-np.linalg.norm(p_1+p_2)**2)
+
     return mass
 
 
