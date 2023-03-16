@@ -7,10 +7,10 @@ import numpy as np
 
 def isgoodlepton(tree, i):
     """
-    If the lepton is a muon (pdg id = +/-13), apply basic quality checks to reject fake/non prompt muons.
+    If the lepton is a muon (pdg id = +/-13) or an electron (pdf id = +/- 11), apply basic quality checks to reject fake/non prompt muons.
     """
 
-    if abs(tree.__lPdgId[i]) == 13 and not tree.__lPassTightID[i]:
+    if (abs(tree._lpdgId[i]) == 13 or abs(tree._lpdgId[i]) == 11) and not tree._lPassTightID[i]:
         return False
     return True
 
